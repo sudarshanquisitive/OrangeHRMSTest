@@ -9,6 +9,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 
 public class LoginTest {
@@ -19,7 +21,9 @@ public class LoginTest {
 	@BeforeTest
 	public void Before() {
 	
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+//		driver = new ChromeDriver();
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		System.out.println("The browser value is Chrome");
 		driver.get(URL);

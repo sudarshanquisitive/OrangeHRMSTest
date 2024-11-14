@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -23,8 +24,12 @@ public class LoginTest {
 	
 //		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
 //		driver = new ChromeDriver();
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		
+		ChromeOptions chromeOptions = new ChromeOptions();
+		//WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().driverVersion("130.0.6723.117").setup();
+		driver = new ChromeDriver(chromeOptions);
+		
 		System.out.println("The browser value is Chrome");
 		driver.get(URL);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));

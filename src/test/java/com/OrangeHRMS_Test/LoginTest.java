@@ -47,7 +47,7 @@ public class LoginTest {
         
 		//WebDriverManager.chromedriver().setup();
 		WebDriverManager.chromedriver().driverVersion("130.0.6723.117").setup();
-		driver = new ChromeDriver(options);
+		driver = new ChromeDriver();
 		
 		System.out.println("The browser value is Chrome");
 		driver.get(URL);

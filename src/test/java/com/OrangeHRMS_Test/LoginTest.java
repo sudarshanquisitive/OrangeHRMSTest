@@ -1,6 +1,7 @@
 package com.OrangeHRMS_Test;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,10 +26,28 @@ public class LoginTest {
 //		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chromeOptions = new ChromeOptions();
+		ChromeOptions options = new ChromeOptions();
+		
+		 // Set the binary location based on the environment
+//        String ENV_NAME = System.getenv("ENV_NAME");
+//        if ("production".equals(ENV_NAME)) {
+//            options.setBinary("/opt/render/.wdm/drivers/chromedriver");
+//        }
+
+        // Add the necessary arguments
+        options.setBinary("/opt/render/.wdm/drivers/chromedriver");
+        options.addArguments("--verbose");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-debugging-port=9222");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-gpu");
+        
 		//WebDriverManager.chromedriver().setup();
 		WebDriverManager.chromedriver().driverVersion("130.0.6723.117").setup();
-		driver = new ChromeDriver(chromeOptions);
+		driver = new ChromeDriver(options);
 		
 		System.out.println("The browser value is Chrome");
 		driver.get(URL);

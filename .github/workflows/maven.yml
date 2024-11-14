@@ -7,11 +7,6 @@
 # documentation.
 
 name: Java CI with Maven
-before_script:
-  - apt-get update
-  - apt-get install -y wget curl unzip
-  - apt-get install -y libnss3 libgdk-pixbuf2.0-0 fonts-liberation
-  - apt-get install -y libappindicator3-1 libasound2
 
 on:
   push:
